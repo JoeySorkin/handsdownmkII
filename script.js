@@ -36,7 +36,7 @@ function setup() {
 function classifyVideo() {
   classifier.classify(video, gotResults);
 }
-// while()
+while()
 function draw() {
 //   background(0);
 
