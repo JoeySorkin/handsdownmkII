@@ -1,37 +1,75 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- <script src = "p5.min.js"></script> -->
 
-<head>
-<!-- <script src = "p5.min.js"></script> -->
-<link rel="stylesheet" href="https://use.typekit.net/rjj3oha.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
-  <script src="https://unpkg.com/ml5@0.4.1/dist/ml5.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8" />
-    <title>Face MK I</title>
-</head>
+    <link rel="stylesheet" href="https://use.typekit.net/rjj3oha.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+    <title>Hands Down</title>
+  </head>
 
-<body>
-<div class = stage>
-    <div id = item>
-    
+  <body>
+    <div id="loader">
+      <div id="logobox"></div>
+
+      <div id="startbutton" onclick="init()"></div>
     </div>
-</div>
-<table class = "data">
- <tr>
-        <td id = 'zero'></td>
- </tr>
- <tr>
-        <td id = 'one'></td>
- </tr>
- <tr>
-        <td id = 'two'></td>
- </tr>
 
-</table>
-  <script src="script.js"></script>
-</body>
+    <div id="content">
+      <nav>
+        <span class="title">
+          <a href="index.html">Hands Down</a>
+        </span>
+        <span class="list">
+          <a href="works.html">How it Works</a>
+        </span>
+        <span class="list">
+          <a href="about.html">About the Author</a>
+        </span>
+      </nav>
 
+      <div class="stage">
+        <div id="webcam-container"></div>
+      </div>
+      <div class="onoffswitch">
+        <input
+          type="checkbox"
+          onclick="checkToggle()"
+          name="onoffswitch"
+          class="onoffswitch-checkbox"
+          id="myonoffswitch"
+        />
+
+      <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+
+      <div id = "advancedOpt">
+                  
+                    <div class="label-title">Class Confidence:</div>
+                    <div id="label-container"></div>
+                    <div class="label-title">Alert Threshold</div>
+                    <div class = "switcher">
+                    <label for="quantity">number (between 1 and 90):</label>
+                <input type="number" id="thresholdInput" name="quantity" min="1" max="100" value = "90" size= "30">
+                    </div>
+                    <div class="label-title">Alert Interval</div>
+                    <div class = "switcher">
+                        <label for="quantity">time between alerts (ms):</label>
+                    <input type="number" id="alertInput" name="quantity" min="1" max="100" value = "500" size= "30">
+                        </div>
+                        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <script src="scripts/process.js"></script>
+    <script src="scripts/ml.js"></script>
+    <script src="scripts/charts.js"></script>
+  </body>
 </html>
