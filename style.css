@@ -82,7 +82,10 @@ h1 {
   border-radius: 10px;
   border: var(--black) 10px solid;
   margin: 20px auto;
-  background-color: var(--white);
+  /* background-color: var(--white); */
+  background-image: url("assets/Untitled-1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
   --opacity: 0;
   --hue: var(--black);
   display: block;
